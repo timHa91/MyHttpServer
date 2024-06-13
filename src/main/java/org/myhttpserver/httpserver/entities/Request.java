@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.myhttpserver.httpserver.entities;
 
 public class Request {
     private HttpMethod method;

@@ -1,0 +1,9 @@
+{
+  "host": "localhost",
+  "webroot": "/www",
+  "port": 8080,
+  "requestTimeout": "PT60S",
+  "readBufferSize": 65536,
+  "maxRequestSize": 1048576,
+  "concurrency": 4
+}

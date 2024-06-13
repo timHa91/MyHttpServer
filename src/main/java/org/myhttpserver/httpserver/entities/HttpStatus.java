@@ -1,4 +1,4 @@
-package org.example.entities;
+package org.myhttpserver.httpserver.entities;
 
 public enum HttpStatus {
     // 1xx Informational

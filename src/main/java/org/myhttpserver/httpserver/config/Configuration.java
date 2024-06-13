@@ -1,21 +1,55 @@
-package org.example.entities;
+package org.myhttpserver.httpserver.config;
 
 import java.time.Duration;
 
-public class Options {
+public class Configuration {
     private String host;
+    private String webroot;
     private int port;
     private Duration requestTimeout;
     private int readBufferSize;
     private int maxRequestSize;
     private int concurrency;
 
-    private Options(String host, int port, Duration requestTimeout, int readBufferSize, int maxRequestSize, int concurrency) {
+    // No-args Konstruktor für Jackson
+    public Configuration() {
+    }
+
+    public Configuration(String host, String webroot, int port, Duration requestTimeout, int readBufferSize, int maxRequestSize, int concurrency) {
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public String getWebroot() {
+        return webroot;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public Duration getRequestTimeout() {
+        return requestTimeout;
+    }
+
+    public int getReadBufferSize() {
+        return readBufferSize;
+    }
+
+    public int getMaxRequestSize() {
+        return maxRequestSize;
+    }
+
+    public int getConcurrency() {
+        return concurrency;
     }
 
     public static class Builder {
 
         private String host;
+        private String webroot;
         private int port;
         private Duration requestTimeout;
         private int readBufferSize;
@@ -25,6 +59,7 @@ public class Options {
         private Builder() {
             // Setzen von Standardwerten
             this.host = "localhost";
+            this.webroot = "";
             this.port = 8080;
             this.requestTimeout = Duration.ofSeconds(60);
             this.readBufferSize = 1_024 * 64;
@@ -38,6 +73,11 @@ public class Options {
 
         public Builder withHost(String host) {
             this.host = host;
+            return this;
+        }
+
+        public Builder withWebroot(String webroot) {
+            this.webroot = webroot;
             return this;
         }
 
@@ -66,9 +106,10 @@ public class Options {
             return this;
         }
 
-        public Options build() {
-            return new Options(
-                this.host,
+        public Configuration build() {
+            return new Configuration(
+                    this.host,
+                    this.webroot,
                     this.port,
                     this.requestTimeout,
                     this.readBufferSize,
