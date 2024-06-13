@@ -1,6 +1,6 @@
 {
   "host": "localhost",
-  "webroot": "/www",
+  "webroot": "/tmp",
   "port": 8080,
   "requestTimeout": "PT60S",
   "readBufferSize": 65536,

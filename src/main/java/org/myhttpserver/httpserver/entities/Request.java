@@ -1,9 +1,9 @@
 package org.myhttpserver.httpserver.entities;
 
 public class Request {
-    private HttpMethod method;
-    private String uri;
-    private Header header;
+    private final HttpMethod method;
+    private final String uri;
+    private final Header header;
     private String body;
 
     public Request(HttpMethod method, String uri, Header header, String body) {

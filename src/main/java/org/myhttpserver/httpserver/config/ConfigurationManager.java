@@ -1,7 +1,7 @@
 package org.myhttpserver.httpserver.config;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.myhttpserver.httpserver.errorhandling.HttpConfigurationException;
+import org.myhttpserver.httpserver.error.HttpConfigurationException;
 import org.myhttpserver.httpserver.utils.Json;
 import org.myhttpserver.httpserver.utils.Validation;
 
@@ -35,7 +35,7 @@ public class ConfigurationManager {
 
             printConfiguration();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new HttpConfigurationException("Error loading the Configuration File", e);
         }
     }
 
